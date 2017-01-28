@@ -45,13 +45,21 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
-
---	match "sitefiles/*" $ do
+	
+--	match "sitefiles/bml.md" $ do
 --		route $ setExtension "html"
---		compile $ pandocMathCompiler
---			>>= loadAndApplyTemplate "templates/files.html"    postCtx
---          >>= loadAndApplyTemplate "templates/default.html" postCtx
+--		posts =<< loadBody "bml.md"
+--		compile $ --do
+--			let archiveCtx = 
+--					listField "posts" postCtx (return posts) `mappend`
+--					constField "title" "Posts"			     `mappend`
+--					defaultContext
+--		makeItem ""
+--			pandocMathCompiler >>= loadAndApplyTemplate "templates/files.html"   archiveCtx
+--			>>= loadAndApplyTemplate "templates/default.html" archiveCtx
 --			>>= relativizeUrls
+	
+
 
     match "index.html" $ do
         route idRoute
