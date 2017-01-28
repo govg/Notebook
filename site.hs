@@ -46,78 +46,69 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 	
---	match "sitefiles/bml.md" $ do
---		route $ setExtension "html"
---		posts =<< loadBody "bml.md"
---		compile $ --do
---			let archiveCtx = 
---					listField "posts" postCtx (return posts) `mappend`
---					constField "title" "Posts"			     `mappend`
---					defaultContext
---		makeItem ""
---			pandocMathCompiler >>= loadAndApplyTemplate "templates/files.html"   archiveCtx
---			>>= loadAndApplyTemplate "templates/default.html" archiveCtx
---			>>= relativizeUrls
+
+--    match "index.html" $ do
+--        route idRoute
+--        compile $ do
+--            posts <- recentFirst =<< loadAll "Misc/*"
+--            let indexCtx =
+--                    listField "posts" postCtx (return posts) `mappend`
+--                    defaultContext
+--            getResourceBody
+--                >>= applyAsTemplate indexCtx
+--                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+--                >>= relativizeUrls
+--        route idRoute
 	
 
+    match "index.md" $ do
+        route $ setExtension "html"
+        compile $ do 
+			posts <- recentFirst =<< loadAll "Misc/*"
+			let indexCtx =
+				listField "posts" postCtx (return posts) `mappend`
+				defaultContext
+			pandocMathCompiler >>= applyAsTemplate indexCtx
+				>>= loadAndApplyTemplate "templates/files.html" indexCtx
+				>>= loadAndApplyTemplate "templates/default.html" indexCtx
+				>>= relativizeUrls
 
-    match "index.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "Misc/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
---			test =<< load "sitefiles/bml.md"
---			compile test pandocMathCompiler
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-        route idRoute
-	
+    match "olo.md" $ do
+        route $ setExtension "html"
+        compile $ do 
+			posts <- recentFirst =<< loadAll "OLO/*"
+			let indexCtx =
+				listField "posts" postCtx (return posts) `mappend`
+				defaultContext
+			pandocMathCompiler >>= applyAsTemplate indexCtx
+				>>= loadAndApplyTemplate "templates/files.html" indexCtx
+				>>= loadAndApplyTemplate "templates/default.html" indexCtx
+				>>= relativizeUrls
 
-    match "thesis.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "Thesis/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
+    match "bml.md" $ do
+        route $ setExtension "html"
+        compile $ do 
+			posts <- recentFirst =<< loadAll "BML/*"
+			let indexCtx =
+				listField "posts" postCtx (return posts) `mappend`
+				defaultContext
+			pandocMathCompiler >>= applyAsTemplate indexCtx
+				>>= loadAndApplyTemplate "templates/files.html" indexCtx
+				>>= loadAndApplyTemplate "templates/default.html" indexCtx
+				>>= relativizeUrls
 
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-        route idRoute
+    match "thesis.md" $ do
+        route $ setExtension "html"
+        compile $ do 
+			posts <- recentFirst =<< loadAll "Thesis/*"
+			let indexCtx =
+				listField "posts" postCtx (return posts) `mappend`
+				defaultContext
+			pandocMathCompiler >>= applyAsTemplate indexCtx
+				>>= loadAndApplyTemplate "templates/files.html" indexCtx
+				>>= loadAndApplyTemplate "templates/default.html" indexCtx
+				>>= relativizeUrls
 
-    match "olo.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "OLO/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-        route idRoute
-
-    match "bml.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "BML/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-        route idRoute
 
     match "templates/*" $ compile templateBodyCompiler
 
