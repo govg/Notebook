@@ -2,8 +2,10 @@
 title: Misc Notes
 ---
 
-Navigate according to projects above. Other random thoughts and notes can 
-be found below : 
+Hi, you've found my private notebook. I try to organize my academics into
+self contained webpages. Navigate using the links above. There might be 
+a post or two below which haven't been categorized yet.
+
 
 
 
