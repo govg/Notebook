@@ -2,14 +2,11 @@
 title: CS773 Online Learning and Optimization
 ---
 
-Course [link]()
+Course [link](http://web.cse.iitk.ac.in/users/purushot/courses/olo/2016-17-w/index.php)
 
-Piazza [link]()
+Piazza [link](https://piazza.com/class/ixk2hp77m8s6qm?cid=15)
 
-
-
-
-Weekly summaries can be found below:
+Project discussions and weekly summaries are below :
 
 
 
