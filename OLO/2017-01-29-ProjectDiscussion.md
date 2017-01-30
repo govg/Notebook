@@ -5,7 +5,7 @@ author : Govind
 
 -----------
 
-###Paper 1 : Online and Stochastic Gradient Methods for Non-Decomposoable Loss Functions
+###Paper 1 : Online and Stochastic Gradient Methods for Non-Decomposable Loss Functions
 
 
 [link](http://www.cse.iitk.ac.in/users/purushot/papers/nondecomp.pdf)
