@@ -3,6 +3,13 @@ title : Project Notes
 author : Govind
 ---
 
+This is a list of all the papers to be studied as well as their abstracts. As time goes by, 
+I will update this post with comments on each paper, how relevant it is, and also try and
+organize this set into a coherent collection.
+
+
+---
+
 ### 2003
 
 ####[Generalized Mean Field algorithm for Variational Inference](https://arxiv.org/abs/1212.2512)
@@ -249,9 +256,27 @@ ICML 2014
 We marry ideas from deep neural networks and approximate Bayesian inference to derive a generalised class of deep, directed generative models, endowed with a new algorithm for scalable inference and learning. Our algorithm introduces a recognition model to represent approximate posterior distributions, and that acts as a stochastic encoder of the data. We develop stochastic back-propagation -- rules for back-propagation through stochastic variables -- and use this to develop an algorithm that allows for joint optimisation of the parameters of both the generative and recognition model. We demonstrate on several real-world data sets that the model generates realistic samples, provides accurate imputations of missing data and is a useful tool for high-dimensional data visualisation.
 
 
+####[Streaming Variational Inference for Bayesin Nonparametric Mixture Models](https://arxiv.org/abs/1412.0694)
+
+2014
+
+ In theory, Bayesian nonparametric (BNP) models are well suited to streaming data scenarios due to their ability to adapt model complexity with the observed data. Unfortunately, such benefits have not been fully realized in practice; existing inference algorithms are either not applicable to streaming applications or not extensible to BNP models. For the special case of Dirichlet processes, streaming inference has been considered. However, there is growing interest in more flexible BNP models building on the class of normalized random measures (NRMs). We work within this general framework and present a streaming variational inference algorithm for NRM mixture models. Our algorithm is based on assumed density filtering (ADF), leading straightforwardly to expectation propagation (EP) for large-scale batch inference as well. We demonstrate the efficacy of the algorithm on clustering documents in large, streaming text corpora.
+
 ---
 
 ### 2015
+
+####[Automatic Variational Inference in Stan](https://arxiv.org/abs/1506.03431)
+
+2015
+
+Variational inference is a scalable technique for approximate Bayesian inference. Deriving variational inference algorithms requires tedious model-specific calculations; this makes it difficult to automate. We propose an automatic variational inference algorithm, automatic differentiation variational inference (ADVI). The user only provides a Bayesian model and a dataset; nothing else. We make no conjugacy assumptions and support a broad class of models. The algorithm automatically determines an appropriate variational family and optimizes the variational objective. We implement ADVI in Stan (code available now), a probabilistic programming framework. We compare ADVI to MCMC sampling across hierarchical generalized linear models, nonconjugate matrix factorization, and a mixture model. We train the mixture model on a quarter million images. With ADVI we can use variational inference on any model we write in Stan.
+
+####[Early Stopping is Nonparametric Variational Inference](https://arxiv.org/abs/1504.01344)
+
+2015
+
+We show that unconverged stochastic gradient descent can be interpreted as a procedure that samples from a nonparametric variational approximate posterior distribution. This distribution is implicitly defined as the transformation of an initial distribution by a sequence of optimization updates. By tracking the change in entropy over this sequence of transformations during optimization, we form a scalable, unbiased estimate of the variational lower bound on the log marginal likelihood. We can use this bound to optimize hyperparameters instead of using cross-validation. This Bayesian interpretation of SGD suggests improved, overfitting-resistant optimization procedures, and gives a theoretical foundation for popular tricks such as early stopping and ensembling. We investigate the properties of this marginal likelihood estimator on neural network models.
 
 ####[Variational Inference with normalizing flows](https://arxiv.org/abs/1505.05770)
 
@@ -302,6 +327,48 @@ In contrast to MCMC, variational Bayes (VB) techniques are readily amenable to r
 ---
 
 ### 2016
+
+####[Variational Inference A review for statisticians](https://arxiv.org/abs/1601.00670)
+
+2016
+
+One of the core problems of modern statistics is to approximate difficult-to-compute probability densities. This problem is especially important in Bayesian statistics, which frames all inference about unknown quantities as a calculation involving the posterior density. In this paper, we review variational inference (VI), a method from machine learning that approximates probability densities through optimization. VI has been used in many applications and tends to be faster than classical methods, such as Markov chain Monte Carlo sampling. The idea behind VI is to first posit a family of densities and then to find the member of that family which is close to the target. Closeness is measured by Kullback-Leibler divergence. We review the ideas behind mean-field variational inference, discuss the special case of VI applied to exponential family models, present a full example with a Bayesian mixture of Gaussians, and derive a variant that uses stochastic optimization to scale up to massive data. We discuss modern research in VI and highlight important open problems. VI is powerful, but it is not yet well understood. Our hope in writing this paper is to catalyze statistical research on this class of algorithms.
+
+####[Automatic Differentiation Variational Inference](https://arxiv.org/abs/1603.00788)
+
+2016
+
+Probabilistic modeling is iterative. A scientist posits a simple model, fits it to her data, refines it according to her analysis, and repeats. However, fitting complex models to large data is a bottleneck in this process. Deriving algorithms for new models can be both mathematically and computationally challenging, which makes it difficult to efficiently cycle through the steps. To this end, we develop automatic differentiation variational inference (ADVI). Using our method, the scientist only provides a probabilistic model and a dataset, nothing else. ADVI automatically derives an efficient variational inference algorithm, freeing the scientist to refine and explore many models. ADVI supports a broad class of models-no conjugacy assumptions are required. We study ADVI across ten different models and apply it to a dataset with millions of observations. ADVI is integrated into Stan, a probabilistic programming system; it is available for immediate use.
+
+####[Extreme Stochastic Variational Inference](https://arxiv.org/abs/1605.09499)
+
+2016
+
+We propose extreme stochastic variational inference (ESVI), which allows multiple processors to simultaneously and asynchronously perform variational inference updates. Moreover, by using a classic owner computes paradigm, our algorithm can be made lock-free. ESVI exhibits data and model parallelism, that is, each processor only needs access to a subset of the data and a subset of the parameters. In our experiments we show that our new algorithm outperforms a straightforward strategy for parallelizing variational inference, which requires bulk synchronization after every iteration.
+
+####[Overdispersed Black Box Variational Inference](https://arxiv.org/abs/1603.01140)
+
+2016
+
+ We introduce overdispersed black-box variational inference, a method to reduce the variance of the Monte Carlo estimator of the gradient in black-box variational inference. Instead of taking samples from the variational distribution, we use importance sampling to take samples from an overdispersed distribution in the same exponential family as the variational approximation. Our approach is general since it can be readily applied to any exponential family distribution, which is the typical choice for the variational approximation. We run experiments on two non-conjugate probabilistic models to show that our method effectively reduces the variance, and the overhead introduced by the computation of the proposal parameters and the importance weights is negligible. We find that our overdispersed importance sampling scheme provides lower variance than black-box variational inference, even when the latter uses twice the number of samples. This results in faster convergence of the black-box inference procedure.
+
+####[Variational Inference with Hamiltonian Monte Carlo](https://arxiv.org/abs/1609.08203)
+
+2016
+
+Variational inference lies at the core of many state-of-the-art algorithms. To improve the approximation of the posterior beyond parametric families, it was proposed to include MCMC steps into the variational lower bound. In this work we explore this idea using steps of the Hamiltonian Monte Carlo (HMC) algorithm, an efficient MCMC method. In particular, we incorporate the acceptance step of the HMC algorithm, guaranteeing asymptotic convergence to the true posterior. Additionally, we introduce some extensions to the HMC algorithm geared towards faster convergence. The theoretical advantages of these modifications are reflected by performance improvements in our experimental results.
+
+####[Rejection Sampling Variational Inference](https://arxiv.org/abs/1610.05683)
+
+2016
+
+Variational inference using the reparameterization trick has enabled large-scale approximate Bayesian inference in complex probabilistic models, leveraging stochastic optimization to sidestep intractable expectations. The reparameterization trick is applicable when we can simulate a random variable by applying a (differentiable) deterministic function on an auxiliary random variable whose distribution is fixed. For many distributions of interest (such as the gamma or Dirichlet), simulation of random variables relies on rejection sampling. The discontinuity introduced by the accept--reject step means that standard reparameterization tricks are not applicable. We propose a new method that lets us leverage reparameterization gradients even when variables are outputs of a rejection sampling algorithm. Our approach enables reparameterization on a larger class of variational distributions. In several studies of real and synthetic data, we show that the variance of the estimator of the gradient is significantly lower than other state-of-the-art methods. This leads to faster convergence of stochastic optimization variational inference.
+
+####[Mean-Field Variational Inference for Gradient Matching](https://arxiv.org/abs/1610.06949)
+
+2016
+
+Gradient matching with Gaussian processes is a promising tool for learning parameters of ordinary differential equations (ODE's). The essence of gradient matching is to model the prior over state variables as a Gaussian process which implies that the joint distribution given the ODE's and GP kernels is also Gaussian distributed. The state-derivatives are integrated out analytically since they are modelled as latent variables. However, the state variables themselves are also latent variables because they are contaminated by noise. Previous work sampled the state variables since integrating them out is \textit{not} analytically tractable. In this paper we use mean-field approximation to establish tight variational lower bounds that decouple state variables and are therefore, in contrast to the integral over state variables, analytically tractable and even concave for a restricted family of ODE's, including nonlinear and periodic ODE's. Such variational lower bounds facilitate "hill climbing" to determine the maximum a posteriori estimate of ODE parameters. An additional advantage of our approach over sampling methods is the determination of a proxy to the intractable posterior distribution over state variables given observations and the ODE's.
 
 ####[Robust Variational Inference](https://arxiv.org/abs/1611.09226)
 
@@ -388,47 +455,4 @@ significantly improves upon diagonal Gaussian approximate posteriors. In additio
 we demonstrate that a novel type of variational autoencoder, coupled with IAF, is
 competitive with neural autoregressive models in terms of attained log-likelihood
 on natural images, while allowing significantly faster synthesis.
-
-### No year found yet 
-
-####[Streaming Variational Inference for Bayesin Nonparametric Mixture Models](https://arxiv.org/abs/1412.0694)
-
- In theory, Bayesian nonparametric (BNP) models are well suited to streaming data scenarios due to their ability to adapt model complexity with the observed data. Unfortunately, such benefits have not been fully realized in practice; existing inference algorithms are either not applicable to streaming applications or not extensible to BNP models. For the special case of Dirichlet processes, streaming inference has been considered. However, there is growing interest in more flexible BNP models building on the class of normalized random measures (NRMs). We work within this general framework and present a streaming variational inference algorithm for NRM mixture models. Our algorithm is based on assumed density filtering (ADF), leading straightforwardly to expectation propagation (EP) for large-scale batch inference as well. We demonstrate the efficacy of the algorithm on clustering documents in large, streaming text corpora.
-
-####[Automatic Variational Inference in Stan](https://arxiv.org/abs/1506.03431)
-
-Variational inference is a scalable technique for approximate Bayesian inference. Deriving variational inference algorithms requires tedious model-specific calculations; this makes it difficult to automate. We propose an automatic variational inference algorithm, automatic differentiation variational inference (ADVI). The user only provides a Bayesian model and a dataset; nothing else. We make no conjugacy assumptions and support a broad class of models. The algorithm automatically determines an appropriate variational family and optimizes the variational objective. We implement ADVI in Stan (code available now), a probabilistic programming framework. We compare ADVI to MCMC sampling across hierarchical generalized linear models, nonconjugate matrix factorization, and a mixture model. We train the mixture model on a quarter million images. With ADVI we can use variational inference on any model we write in Stan.
-
-####[Early Stopping is Nonparametric Variational Inference](https://arxiv.org/abs/1504.01344)
-
-We show that unconverged stochastic gradient descent can be interpreted as a procedure that samples from a nonparametric variational approximate posterior distribution. This distribution is implicitly defined as the transformation of an initial distribution by a sequence of optimization updates. By tracking the change in entropy over this sequence of transformations during optimization, we form a scalable, unbiased estimate of the variational lower bound on the log marginal likelihood. We can use this bound to optimize hyperparameters instead of using cross-validation. This Bayesian interpretation of SGD suggests improved, overfitting-resistant optimization procedures, and gives a theoretical foundation for popular tricks such as early stopping and ensembling. We investigate the properties of this marginal likelihood estimator on neural network models.
-
-
-####[Variational Inference A review for statisticians](https://arxiv.org/abs/1601.00670)
-
-One of the core problems of modern statistics is to approximate difficult-to-compute probability densities. This problem is especially important in Bayesian statistics, which frames all inference about unknown quantities as a calculation involving the posterior density. In this paper, we review variational inference (VI), a method from machine learning that approximates probability densities through optimization. VI has been used in many applications and tends to be faster than classical methods, such as Markov chain Monte Carlo sampling. The idea behind VI is to first posit a family of densities and then to find the member of that family which is close to the target. Closeness is measured by Kullback-Leibler divergence. We review the ideas behind mean-field variational inference, discuss the special case of VI applied to exponential family models, present a full example with a Bayesian mixture of Gaussians, and derive a variant that uses stochastic optimization to scale up to massive data. We discuss modern research in VI and highlight important open problems. VI is powerful, but it is not yet well understood. Our hope in writing this paper is to catalyze statistical research on this class of algorithms.
-
-####[Automatic Differentiation Variational Inference](https://arxiv.org/abs/1603.00788)
-
-Probabilistic modeling is iterative. A scientist posits a simple model, fits it to her data, refines it according to her analysis, and repeats. However, fitting complex models to large data is a bottleneck in this process. Deriving algorithms for new models can be both mathematically and computationally challenging, which makes it difficult to efficiently cycle through the steps. To this end, we develop automatic differentiation variational inference (ADVI). Using our method, the scientist only provides a probabilistic model and a dataset, nothing else. ADVI automatically derives an efficient variational inference algorithm, freeing the scientist to refine and explore many models. ADVI supports a broad class of models-no conjugacy assumptions are required. We study ADVI across ten different models and apply it to a dataset with millions of observations. ADVI is integrated into Stan, a probabilistic programming system; it is available for immediate use.
-
-####[Extreme Stochastic Variational Inference](https://arxiv.org/abs/1605.09499)
-
-We propose extreme stochastic variational inference (ESVI), which allows multiple processors to simultaneously and asynchronously perform variational inference updates. Moreover, by using a classic owner computes paradigm, our algorithm can be made lock-free. ESVI exhibits data and model parallelism, that is, each processor only needs access to a subset of the data and a subset of the parameters. In our experiments we show that our new algorithm outperforms a straightforward strategy for parallelizing variational inference, which requires bulk synchronization after every iteration.
-
-####[Overdispersed Black Box Variational Inference](https://arxiv.org/abs/1603.01140)
-
- We introduce overdispersed black-box variational inference, a method to reduce the variance of the Monte Carlo estimator of the gradient in black-box variational inference. Instead of taking samples from the variational distribution, we use importance sampling to take samples from an overdispersed distribution in the same exponential family as the variational approximation. Our approach is general since it can be readily applied to any exponential family distribution, which is the typical choice for the variational approximation. We run experiments on two non-conjugate probabilistic models to show that our method effectively reduces the variance, and the overhead introduced by the computation of the proposal parameters and the importance weights is negligible. We find that our overdispersed importance sampling scheme provides lower variance than black-box variational inference, even when the latter uses twice the number of samples. This results in faster convergence of the black-box inference procedure.
-
-####[Variational Inference with Hamiltonian Monte Carlo](https://arxiv.org/abs/1609.08203)
-
-Variational inference lies at the core of many state-of-the-art algorithms. To improve the approximation of the posterior beyond parametric families, it was proposed to include MCMC steps into the variational lower bound. In this work we explore this idea using steps of the Hamiltonian Monte Carlo (HMC) algorithm, an efficient MCMC method. In particular, we incorporate the acceptance step of the HMC algorithm, guaranteeing asymptotic convergence to the true posterior. Additionally, we introduce some extensions to the HMC algorithm geared towards faster convergence. The theoretical advantages of these modifications are reflected by performance improvements in our experimental results.
-
-####[Rejection Sampling Variational Inference](https://arxiv.org/abs/1610.05683)
-
-Variational inference using the reparameterization trick has enabled large-scale approximate Bayesian inference in complex probabilistic models, leveraging stochastic optimization to sidestep intractable expectations. The reparameterization trick is applicable when we can simulate a random variable by applying a (differentiable) deterministic function on an auxiliary random variable whose distribution is fixed. For many distributions of interest (such as the gamma or Dirichlet), simulation of random variables relies on rejection sampling. The discontinuity introduced by the accept--reject step means that standard reparameterization tricks are not applicable. We propose a new method that lets us leverage reparameterization gradients even when variables are outputs of a rejection sampling algorithm. Our approach enables reparameterization on a larger class of variational distributions. In several studies of real and synthetic data, we show that the variance of the estimator of the gradient is significantly lower than other state-of-the-art methods. This leads to faster convergence of stochastic optimization variational inference.
-
-####[Mean-Field Variational Inference for Gradient Matching](https://arxiv.org/abs/1610.06949)
-
-Gradient matching with Gaussian processes is a promising tool for learning parameters of ordinary differential equations (ODE's). The essence of gradient matching is to model the prior over state variables as a Gaussian process which implies that the joint distribution given the ODE's and GP kernels is also Gaussian distributed. The state-derivatives are integrated out analytically since they are modelled as latent variables. However, the state variables themselves are also latent variables because they are contaminated by noise. Previous work sampled the state variables since integrating them out is \textit{not} analytically tractable. In this paper we use mean-field approximation to establish tight variational lower bounds that decouple state variables and are therefore, in contrast to the integral over state variables, analytically tractable and even concave for a restricted family of ODE's, including nonlinear and periodic ODE's. Such variational lower bounds facilitate "hill climbing" to determine the maximum a posteriori estimate of ODE parameters. An additional advantage of our approach over sampling methods is the determination of a proxy to the intractable posterior distribution over state variables given observations and the ODE's.
 
