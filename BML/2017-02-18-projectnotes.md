@@ -101,6 +101,12 @@ Inference with the adaptive learning rate con-
 verges faster and to a better approximation
 than the best settings of hand-tuned rates.
 
+####[Variance Reduction for Stochastic Gradient Optimization](http://papers.nips.cc/paper/5034-variance-reduction-for-stochastic-gradient-optimization)
+
+NIPS 2013
+
+Stochastic gradient optimization is a class of widely used algorithms for training machine learning models. To optimize an objective, it uses the noisy gradient computed from the random data samples instead of the true gradient computed from the entire dataset. However, when the variance of the noisy gradient is large, the algorithm might spend much time bouncing around, leading to slower convergence and worse performance. In this paper, we develop a general approach of using control variate for variance reduction in stochastic gradient. Data statistics such as low-order moments (pre-computed or estimated online) is used to form the control variate. We demonstrate how to construct the control variate for two practical problems using stochastic gradient optimization. One is convex---the MAP estimation for logistic regression, and the other is non-convex---stochastic variational inference for latent Dirichlet allocation. On both problems, our approach shows faster convergence and better performance than the classical approach.
+
 ####[Memoized Online Variational Inference for Dirichlet Process Mixture Models](http://papers.nips.cc/paper/4969-memoized-online-variational-inference-for-dirichlet-process-mixture-models)
 
 NIPS 2013
@@ -124,6 +130,35 @@ In the internet era there has been an explosion in the amount of digital text in
 
 ### 2014
 
+####[Bayesian Nonparametric Poisson Factorization for Recommendation Systems](http://www.jmlr.org/proceedings/papers/v33/gopalan14.pdf)
+
+AISTATS 2013
+
+We develop a Bayesian nonparametric Pois-
+son factorization model for recommendation
+systems.
+Poisson   factorization   implicitly
+models  each  user’s  limited  budget  of  atten-
+tion (or money) that allows consumption of
+only  a  small  subset  of  the  available  items.
+In  our  Bayesian  nonparametric  variant,  the
+number of latent components is theoretically
+unbounded  and  effectively  estimated  when
+computing a posterior with observed user be-
+havior  data.   To  approximate  the  posterior,
+we  develop  an  efficient  variational  inference
+algorithm.   It  adapts  the  dimensionality  of
+the latent components to the data,  only re-
+quires iteration over the user/item pairs that
+have been rated, and has computational com-
+plexity on the same order as for a parametric
+model  with  fixed  dimensionality.   We  stud-
+ied our model and algorithm with large real-
+world  data  sets  of  user-movie  preferences.
+Our  model  eases  the  computational  burden
+of searching for the number of latent compo-
+nents and gives better predictive performance
+than its parametric counterpart.
 
 ####[On convergence of Stochastic Variational Inference in Bayesian Networks](https://arxiv.org/abs/1507.04505)
 
@@ -266,6 +301,27 @@ We marry ideas from deep neural networks and approximate Bayesian inference to d
 
 ### 2015
 
+####[Nested Hierarchical Dirichlet Processes](http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6802355)
+
+PAMI 2015
+
+We develop a nested hierarchical Dirichlet process (nHDP) for hierarchical topic modeling. The nHDP generalizes the
+nested Chinese restaurant process (nCRP) to allow each word to follow its own path to a topic node according to a per-document
+distribution over the paths on a shared tree. This alleviates the rigid, single-path formulation assumed by the nCRP, allowing
+documents to easily express complex thematic borrowings. We derive a stochastic variational inference algorithm for the model, which
+enables efficient inference for massive collections of text documents. We demonstrate our algorithm on 1.8 million documents from
+The
+New York Times
+and 2.7 million documents from
+Wikipedia
+
+
+####[Stochastic Expectation Propagation](http://papers.nips.cc/paper/5760-stochastic-expectation-propagation)
+
+NIPS 2015
+
+Expectation propagation (EP) is a deterministic approximation algorithm that is often used to perform approximate Bayesian parameter learning. EP approximates the full intractable posterior distribution through a set of local-approximations that are iteratively refined for each datapoint. EP can offer analytic and computational advantages over other approximations, such as Variational Inference (VI), and is the method of choice for a number of models. The local nature of EP appears to make it an ideal candidate for performing Bayesian learning on large models in large-scale datasets settings. However, EP has a crucial limitation in this context: the number approximating factors needs to increase with the number of data-points, N, which often entails a prohibitively large memory overhead. This paper presents an extension to EP, called stochastic expectation propagation (SEP), that maintains a global posterior approximation (like VI) but updates it in a local way (like EP). Experiments on a number of canonical learning problems using synthetic and real-world datasets indicate that SEP performs almost as well as full EP, but reduces the memory consumption by a factor of N. SEP is therefore ideally suited to performing approximate Bayesian learning in the large model, large dataset setting.
+
 ####[Automatic Variational Inference in Stan](https://arxiv.org/abs/1506.03431)
 
 2015
@@ -323,6 +379,21 @@ In Bayesian analysis, the posterior follows from the data and a choice of a prio
 
 In contrast to MCMC, variational Bayes (VB) techniques are readily amenable to robustness analysis. The derivative of a posterior expectation with respect to a prior or data perturbation is a measure of local robustness to the prior or likelihood. Because VB casts posterior inference as an optimization problem, its methodology is built on the ability to calculate derivatives of posterior quantities with respect to model parameters, even in very complex models. In the present work, we develop local prior robustness measures for mean-field variational Bayes(MFVB), a VB technique which imposes a particular factorization assumption on the variational posterior approximation. We start by outlining existing local prior measures of robustness. Next, we use these results to derive closed-form measures of the sensitivity of mean-field variational posterior approximation to prior specification. We demonstrate our method on a meta-analysis of randomized controlled interventions in access to microcredit in developing countries.
 
+####[Local Expectation Gradients for Black Box Variational Inference](http://papers.nips.cc/paper/5678-local-expectation-gradients-for-black-box-variational-inference)
+
+NIPS 2015
+
+We introduce local expectation gradients which is a general purpose stochastic variational inference algorithm for constructing stochastic gradients by sampling from the variational distribution. This algorithm divides the problem of estimating the stochastic gradients over multiple variational parameters into smaller sub-tasks so that each sub-task explores intelligently the most relevant part of the variational distribution. This is achieved by performing an exact expectation over the single random variable that most correlates with the variational parameter of interest resulting in a Rao-Blackwellized estimate that has low variance. Our method works efficiently for both continuous and discrete random variables. Furthermore, the proposed algorithm has interesting similarities with Gibbs sampling but at the same time, unlike Gibbs sampling, can be trivially parallelized.
+
+####[Scalable Bayesian Non-negative Tensor Factorization for Massive Count Data](http://link.springer.com/chapter/10.1007/978-3-319-23525-7_4)
+
+ECML 2015
+
+We present a Bayesian non-negative tensor factorization model for count-valued tensor data, and develop scalable inference algorithms (both batch and online) for dealing with massive tensors. Our generative model can handle overdispersed counts as well as infer the rank of the decomposition. Moreover, leveraging a reparameterization of the Poisson distribution as a multinomial facilitates conjugacy in the model and enables simple and efficient Gibbs sampling and variational Bayes (VB) inference updates, with a computational cost that only depends on the number of nonzeros in the tensor. The model also provides a nice interpretability for the factors; in our model, each factor corresponds to a “topic”. We develop a set of online inference algorithms that allow further scaling up the model to massive tensors, for which batch inference methods may be infeasible. We apply our framework on diverse real-world applications, such as multiway topic modeling on a scientific publications database, analyzing a political science data set, and analyzing a massive household transactions data set.
+
+####[ On the properties of variational approximations of Gibbs posteriors](https://arxiv.org/abs/1506.04091)
+
+The PAC-Bayesian approach is a powerful set of techniques to derive non- asymptotic risk bounds for random estimators. The corresponding optimal distribution of estimators, usually called the Gibbs posterior, is unfortunately intractable. One may sample from it using Markov chain Monte Carlo, but this is often too slow for big datasets. We consider instead variational approximations of the Gibbs posterior, which are fast to compute. We undertake a general study of the properties of such approximations. Our main finding is that such a variational approximation has often the same rate of convergence as the original PAC-Bayesian procedure it approximates. We specialise our results to several learning tasks (classification, ranking, matrix completion),discuss how to implement a variational approximation in each case, and illustrate the good properties of said approximation on real datasets. 
 
 ---
 
